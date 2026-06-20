@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomadic Horizon - Interactive Mongolia Travel Guide</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & Playfair Display for Premium feel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfbfa;
+        }
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-stone-100">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-bold tracking-wider text-amber-800 serif-font">NOMADIC HORIZON</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-stone-600">
+                <a href="#planner" class="hover:text-amber-700 transition">Route Planner</a>
+                <a href="#calculator" class="hover:text-amber-700 transition">Budget Calculator</a>
+                <a href="#survival" class="hover:text-amber-700 transition">Survival Kit</a>
+                <a href="#premium" class="hover:text-amber-700 transition">Premium Guides</a>
+            </nav>
+            <div>
+                <a href="#premium" class="bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-sm transition">
+                    Get PDF Guide <i class="fa-solid fa-download ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-stone-900 text-white py-24 px-4 overflow-hidden">
+        <!-- Background Pattern / Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply" style="background-image: url('https://images.unsplash.com/photo-1526481280693-3bfa75617d33?auto=format&fit=crop&w=1500&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-900/50"></div>
+        
+        <div class="relative max-w-4xl mx-auto text-center space-y-6">
+            <span class="text-amber-400 font-semibold tracking-widest text-xs uppercase bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20">Mongolia Travel Companion 2026</span>
+            <h1 class="text-4xl md:text-6xl font-bold serif-font leading-tight text-stone-50">
+                The Ultimate Interactive <br><span class="text-amber-400 italic">Mongolian Odyssey</span>
+            </h1>
+            <p class="text-stone-300 text-base md:text-lg max-w-xl mx-auto font-light">
+                Plan your route, estimate realistic local budgets, learn basic nomadic phrases, and unlock pro-tips for your adventure into the Land of the Blue Sky.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#planner" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-semibold px-6 py-3 rounded-xl transition shadow-lg shadow-amber-500/10">
+                    Try Interactive Planner
+                </a>
+                <a href="#premium" class="bg-stone-800/80 hover:bg-stone-800 text-stone-100 border border-stone-700 px-6 py-3 rounded-xl transition">
+                    Unlock Premium Offline PDF ($19)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges & Highlights -->
+    <section class="max-w-6xl mx-auto px-4 -mt-8 relative z-10">
+        <div class="bg-white rounded-2xl shadow-xl border border-stone-100 p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="space-y-1 p-2">
+                <div class="text-amber-600 text-2xl"><i class="fa-solid fa-route"></i></div>
+                <div class="text-lg font-bold text-stone-800">4 Main Paths</div>
+                <div class="text-xs text-stone-500">Gobi, Khuvsgul, West, Center</div>
+            </div>
+            <div class="space-y-1 p-2 border-l border-stone-100">
+                <div class="text-amber-600 text-2xl"><i class="fa-solid fa-wallet"></i></div>
+                <div class="text-lg font-bold text-stone-800">Live Budgeting</div>
+                <div class="text-xs text-stone-500">Real-time local costs</div>
+            </div>
+            <div class="space-y-1 p-2 border-l border-stone-100">
+                <div class="text-amber-600 text-2xl"><i class="fa-solid fa-language"></i></div>
+                <div class="text-lg font-bold text-stone-800">Nomad Talk</div>
+                <div class="text-xs text-stone-500">Survival phrase phonetics</div>
+            </div>
+            <div class="space-y-1 p-2 border-l border-stone-100">
+                <div class="text-amber-600 text-2xl"><i class="fa-solid fa-clipboard-check"></i></div>
+                <div class="text-lg font-bold text-stone-800">Offline Checklist</div>
+                <div class="text-xs text-stone-500">Interactive packing lists</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Interactive Route Planner -->
+    <section id="planner" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center space-y-3 mb-12">
+            <h2 class="text-3xl font-bold serif-font text-stone-900">Custom Route & Itinerary Planner</h2>
+            <p class="text-stone-600 max-w-lg mx-auto">Select your adventure duration and favorite region to instantly generate a curated, day-by-day travel plan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Controls Card -->
+            <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm space-y-6 h-fit">
+                <h3 class="font-semibold text-lg text-stone-800 border-b pb-3"><i class="fa-solid fa-sliders mr-2 text-amber-600"></i> Customize Plan</h3>
+                
+                <!-- Duration Selector -->
+                <div class="space-y-2">
+                    <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">A. Travel Duration</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="setDuration(5)" id="btn-dur-5" class="dur-btn py-2.5 px-3 border border-stone-200 rounded-xl text-sm font-medium transition bg-amber-50 border-amber-600 text-amber-900">5 Days</button>
+                        <button onclick="setDuration(10)" id="btn-dur-10" class="dur-btn py-2.5 px-3 border border-stone-200 rounded-xl text-sm font-medium transition hover:border-amber-600">10 Days</button>
+                        <button onclick="setDuration(14)" id="btn-dur-14" class="dur-btn py-2.5 px-3 border border-stone-200 rounded-xl text-sm font-medium transition hover:border-amber-600">14 Days</button>
+                    </div>
+                </div>
+
+                <!-- Region Selector -->
+                <div class="space-y-2">
+                    <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">B. Destination / Vibe</label>
+                    <div class="space-y-2">
+                        <button onclick="setRegion('gobi')" id="btn-reg-gobi" class="reg-btn w-full flex items-center justify-between p-3 border border-amber-600 bg-amber-50/50 rounded-xl text-left transition">
+                            <div>
+                                <div class="font-semibold text-sm text-stone-900">🔥 Southern Gobi Desert</div>
+                                <div class="text-xs text-stone-500">Dunes, dinosaur fossils, camels</div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-amber-600"></i>
+                        </button>
+                        <button onclick="setRegion('khuvsgul')" id="btn-reg-khuvsgul" class="reg-btn w-full flex items-center justify-between p-3 border border-stone-200 rounded-xl text-left transition hover:bg-stone-50">
+                            <div>
+                                <div class="font-semibold text-sm text-stone-900">🌲 Northern Lake Khuvsgul</div>
+                                <div class="text-xs text-stone-500">Taiga, reindeer herders, deep blue lake</div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-400"></i>
+                        </button>
+                        <button onclick="setRegion('central')" id="btn-reg-central" class="reg-btn w-full flex items-center justify-between p-3 border border-stone-200 rounded-xl text-left transition hover:bg-stone-50">
+                            <div>
+                                <div class="font-semibold text-sm text-stone-900">🐎 Central Orkhon Valley</div>
+                                <div class="text-xs text-stone-500">Waterfalls, Karakorum ruins, nomadic life</div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-400"></i>
+                        </button>
+                        <button onclick="setRegion('west')" id="btn-reg-west" class="reg-btn w-full flex items-center justify-between p-3 border border-stone-200 rounded-xl text-left transition hover:bg-stone-50">
+                            <div>
+                                <div class="font-semibold text-sm text-stone-900">🦅 Western Altai Mountains</div>
+                                <div class="text-xs text-stone-500">Golden eagle hunters, glaciers, high peaks</div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200/50">
+                    <p class="text-xs text-amber-900 leading-relaxed">
+                        <i class="fa-solid fa-circle-info mr-1"></i> <strong>Pro Tip:</strong> 10-14 days is highly recommended for Mongolia. Overland driving is slow due to unpaved roads, but incredibly scenic!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Itinerary Display Card -->
+            <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl border border-stone-200/80 shadow-sm space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4">
+                    <div>
+                        <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full uppercase tracking-wider" id="itinerary-tag">5 Days Plan</span>
+                        <h3 class="text-2xl font-bold serif-font text-stone-950 mt-1" id="itinerary-title">Gobi Desert Explorer</h3>
+                    </div>
+                    <button onclick="printItinerary()" class="text-xs font-semibold text-stone-600 hover:text-amber-700 border border-stone-200 px-3 py-1.5 rounded-lg transition flex items-center self-start sm:self-auto">
+                        <i class="fa-solid fa-print mr-1.5"></i> Print / Save Plan
+                    </button>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative pl-6 border-l-2 border-amber-200 space-y-8" id="itinerary-timeline">
+                    <!-- Dynamic Days will inject here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Budget Calculator -->
+    <section id="calculator" class="bg-stone-100 py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs font-semibold text-amber-700 bg-amber-100/50 px-3 py-1 rounded-full uppercase">Live Estimator</span>
+                <h2 class="text-3xl font-bold serif-font text-stone-900">Travel Budget Calculator</h2>
+                <p class="text-stone-600 max-w-lg mx-auto">Mongolian pricing depends heavily on whether you choose budget/backpacking options or fully guided custom tours.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Interactive Inputs -->
+                <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm space-y-6 flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <!-- Number of Travelers -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <label class="text-sm font-semibold text-stone-700">Number of Travelers</label>
+                                <span class="text-lg font-bold text-amber-700" id="val-travelers">2 People</span>
+                            </div>
+                            <input type="range" id="input-travelers" min="1" max="10" value="2" oninput="calculateBudget()" class="w-full accent-amber-600 bg-stone-100 h-2 rounded-lg cursor-pointer">
+                        </div>
+
+                        <!-- Days Slider -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <label class="text-sm font-semibold text-stone-700">Days of Travel</label>
+                                <span class="text-lg font-bold text-amber-700" id="val-days">10 Days</span>
+                            </div>
+                            <input type="range" id="input-days" min="3" max="30" value="10" oninput="calculateBudget()" class="w-full accent-amber-600 bg-stone-100 h-2 rounded-lg cursor-pointer">
+                        </div>
+
+                        <!-- Travel Style Options -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-stone-700 block">Travel Style</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <button onclick="setStyle('backpacker')" id="btn-style-backpacker" class="style-btn p-3 border border-stone-200 rounded-xl text-left transition">
+                                    <div class="font-bold text-xs uppercase tracking-wider text-stone-500">Backpacker</div>
+                                    <div class="text-sm font-semibold text-stone-800 mt-1">$45 / day</div>
+                                    <p class="text-[11px] text-stone-500 mt-1">Hostels, local buses, self-guided exploration.</p>
+                                </button>
+                                <button onclick="setStyle('midrange')" id="btn-style-midrange" class="style-btn p-3 border border-amber-600 bg-amber-50/50 rounded-xl text-left transition">
+                                    <div class="font-bold text-xs uppercase tracking-wider text-amber-700">Mid-Range</div>
+                                    <div class="text-sm font-semibold text-stone-800 mt-1">$120 / day</div>
+                                    <p class="text-[11px] text-stone-500 mt-1">Tourist Ger camps, private UAZ Patriot/Russian Furgon.</p>
+                                </button>
+                                <button onclick="setStyle('luxury')" id="btn-style-luxury" class="style-btn p-3 border border-stone-200 rounded-xl text-left transition">
+                                    <div class="font-bold text-xs uppercase tracking-wider text-stone-500">Luxury / Tour</div>
+                                    <div class="text-sm font-semibold text-stone-800 mt-1">$280 / day</div>
+                                    <p class="text-[11px] text-stone-500 mt-1">Premium glamping, Land Cruisers, expert guides.</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t pt-4 text-xs text-stone-500">
+                        *Estimates exclude international flights. Costs are based on average 2026 tour operator prices in Mongolia.
+                    </div>
+                </div>
+
+                <!-- Results display -->
+                <div class="bg-stone-900 text-stone-100 p-8 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold">Estimated Total Cost</span>
+                        <div class="flex items-baseline space-x-2">
+                            <span class="text-5xl font-black serif-font text-white" id="total-price">$2,400</span>
+                            <span class="text-stone-400 text-sm">USD Total</span>
+                        </div>
+                        <p class="text-sm text-stone-300 leading-relaxed" id="budget-summary">
+                            Great! For 2 travelers exploring for 10 days in Mid-Range style, your estimated budget is around $2,400 (approx. $120 per person per day).
+                        </p>
+                    </div>
+
+                    <!-- Cost breakdown visual bar -->
+                    <div class="space-y-3">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-stone-400">Estimated Cost Breakdown:</div>
+                        <div class="h-3 w-full rounded-full overflow-hidden flex">
+                            <div class="bg-amber-500" style="width: 45%" title="Vehicle & Fuel"></div>
+                            <div class="bg-emerald-500" style="width: 30%" title="Ger Camps & Food"></div>
+                            <div class="bg-indigo-500" style="width: 15%" title="Local Host / Guides"></div>
+                            <div class="bg-rose-500" style="width: 10%" title="Park Entry & Fun"></div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-stone-400 pt-2">
+                            <div class="flex items-center"><span class="w-2.5 h-2.5 bg-amber-500 rounded-full mr-1.5 inline-block"></span> 45% Transp.</div>
+                            <div class="flex items-center"><span class="w-2.5 h-2.5 bg-emerald-500 rounded-full mr-1.5 inline-block"></span> 30% Food/Stay</div>
+                            <div class="flex items-center"><span class="w-2.5 h-2.5 bg-indigo-500 rounded-full mr-1.5 inline-block"></span> 15% Guide</div>
+                            <div class="flex items-center"><span class="w-2.5 h-2.5 bg-rose-500 rounded-full mr-1.5 inline-block"></span> 10% Tickets</div>
+                        </div>
+                    </div>
+
+                    <a href="#premium" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold py-3.5 px-6 rounded-xl transition text-center shadow-lg shadow-amber-500/20">
+                        Get Detailed Budget PDF Guide <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Survival Kit & Packing List -->
+    <section id="survival" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center space-y-3 mb-12">
+            <h2 class="text-3xl font-bold serif-font text-stone-900">Nomadic Survival Kit</h2>
+            <p class="text-stone-600 max-w-lg mx-auto">Handy tools to help you navigate conversations in the wilderness and keep track of your packing essentials.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Part A: Survival Phrases -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold serif-font text-stone-900 border-b pb-3 flex items-center">
+                    <span class="bg-amber-100 text-amber-800 w-8 h-8 rounded-lg flex items-center justify-center mr-2 text-sm"><i class="fa-solid fa-comments"></i></span>
+                    Essential Mongolian Phrases
+                </h3>
+                <p class="text-stone-500 text-sm">Pronouncing basic Mongolian words goes a long way when staying with nomadic families. Try these:</p>
+                
+                <div class="space-y-3">
+                    <!-- Phrase 1 -->
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 flex justify-between items-center hover:border-amber-500 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Greeting</span>
+                            <h4 class="font-bold text-stone-900 text-base mt-0.5">Sain baina uu?</h4>
+                            <p class="text-xs text-stone-500 mt-1">Literal: Are you doing well? (Universal Hello)</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-mono">"Sighn Bain-oo"</span>
+                        </div>
+                    </div>
+                    <!-- Phrase 2 -->
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 flex justify-between items-center hover:border-amber-500 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Gratitude</span>
+                            <h4 class="font-bold text-stone-900 text-base mt-0.5">Bayarlalaa</h4>
+                            <p class="text-xs text-stone-500 mt-1">Literal: Thank you</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-mono">"Bah-yar-lah-lah"</span>
+                        </div>
+                    </div>
+                    <!-- Phrase 3 -->
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 flex justify-between items-center hover:border-amber-500 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Entering a Ger</span>
+                            <h4 class="font-bold text-stone-900 text-base mt-0.5">Nohoi khorio!</h4>
+                            <p class="text-xs text-stone-500 mt-1">Literal: Hold the dog! (To call out upon arrival)</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-mono">"No-hoy Hor-yo"</span>
+                        </div>
+                    </div>
+                    <!-- Phrase 4 -->
+                    <div class="bg-white p-4 rounded-xl border border-stone-200 flex justify-between items-center hover:border-amber-500 transition">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Asking directions</span>
+                            <h4 class="font-bold text-stone-900 text-base mt-0.5">Хаана вэ? (Haana ve?)</h4>
+                            <p class="text-xs text-stone-500 mt-1">Literal: Where is it?</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-full font-mono">"Hahn-ah weh"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part B: Interactive Packing Checklist -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold serif-font text-stone-900 border-b pb-3 flex items-center">
+                    <span class="bg-amber-100 text-amber-800 w-8 h-8 rounded-lg flex items-center justify-center mr-2 text-sm"><i class="fa-solid fa-suitcase"></i></span>
+                    Survival Gear Packing List
+                </h3>
+                <p class="text-stone-500 text-sm">Mongolia has extreme micro-climates. You can experience summer heat and snowstorm on the same day!</p>
+                
+                <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm space-y-4">
+                    <div class="space-y-3" id="packing-checklist">
+                        <!-- Custom Checklist items with JS handler -->
+                        <label class="flex items-start space-x-3 cursor-pointer p-1">
+                            <input type="checkbox" onchange="toggleCheck(this)" class="mt-1 accent-amber-600 w-4 h-4 rounded">
+                            <div>
+                                <span class="text-sm font-semibold text-stone-800">Thermal layers & warm jacket</span>
+                                <p class="text-xs text-stone-500">Even July nights in the desert can drop below 10°C (50°F).</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer p-1">
+                            <input type="checkbox" onchange="toggleCheck(this)" class="mt-1 accent-amber-600 w-4 h-4 rounded">
+                            <div>
+                                <span class="text-sm font-semibold text-stone-800">Power Bank (Solar charger highly recommended)</span>
+                                <p class="text-xs text-stone-500">Electricity is rare in wild camping and traditional ger stays.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer p-1">
+                            <input type="checkbox" onchange="toggleCheck(this)" class="mt-1 accent-amber-600 w-4 h-4 rounded">
+                            <div>
+                                <span class="text-sm font-semibold text-stone-800">Headlamp / Flashlight</span>
+                                <p class="text-xs text-stone-500">Crucial for nocturnal bathroom visits in the wilderness.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer p-1">
+                            <input type="checkbox" onchange="toggleCheck(this)" class="mt-1 accent-amber-600 w-4 h-4 rounded">
+                            <div>
+                                <span class="text-sm font-semibold text-stone-800">Dry shampoo & wet wipes</span>
+                                <p class="text-xs text-stone-500">Showers might be unavailable for days in the steppes.</p>
+                            </div>
+                        </label>
+                        <label class="flex items-start space-x-3 cursor-pointer p-1">
+                            <input type="checkbox" onchange="toggleCheck(this)" class="mt-1 accent-amber-600 w-4 h-4 rounded">
+                            <div>
+                                <span class="text-sm font-semibold text-stone-800">Offline Maps (Maps.me or Google Offline)</span>
+                                <p class="text-xs text-stone-500 font-medium text-amber-700">There is absolutely no cell service in 80% of the countryside.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Premium E-Book CTA & Paywall Demo -->
+    <section id="premium" class="bg-amber-900 text-stone-100 py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1500&q=80');"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center space-y-8">
+            <div class="inline-block bg-amber-500/20 border border-amber-500/40 px-3.5 py-1 rounded-full text-xs font-semibold uppercase text-amber-400">
+                Unlock Complete Travel Freedom
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold serif-font">Get the Comprehensive Ultimate <br>Mongolia PDF Field Guide</h2>
+            <p class="text-stone-300 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                Take our hand-crafted, beautifully formatted, 140-page comprehensive offline manual containing turn-by-turn routes, secret camp spots, packing checklists, and local emergency contacts. Available offline anywhere.
+            </p>
+
+            <div class="bg-stone-950/50 backdrop-blur-sm max-w-md mx-auto p-6 rounded-2xl border border-amber-500/20 space-y-4 text-left">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-amber-400 text-lg">The Complete Nomad Field Guide</h4>
+                        <p class="text-xs text-stone-400">Instant PDF Access + GPX Offline Map Files</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-2xl font-black text-white">$19</span>
+                        <p class="text-[10px] text-stone-400 line-through">$45.00</p>
+                    </div>
+                </div>
+                <div class="border-t border-stone-800 pt-4 space-y-2">
+                    <div class="flex items-center text-xs text-stone-300"><i class="fa-solid fa-circle-check text-amber-500 mr-2"></i> Custom-made GPX routes for offline navigation</div>
+                    <div class="flex items-center text-xs text-stone-300"><i class="fa-solid fa-circle-check text-amber-500 mr-2"></i> Comprehensive Packing Checklist & Local Host contact list</div>
+                    <div class="flex items-center text-xs text-stone-300"><i class="fa-solid fa-circle-check text-amber-500 mr-2"></i> Free lifetime updates as routes improve</div>
+                </div>
+
+                <!-- Custom Modal Trigger instead of alert() -->
+                <button onclick="showPurchaseModal()" class="w-full bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold py-3 px-4 rounded-xl transition text-center text-sm shadow-lg shadow-amber-500/10">
+                    Buy and Download Guide Instantly
+                </button>
+            </div>
+            
+            <p class="text-stone-400 text-xs">🔒 256-bit Secure Transaction. 100% money back guarantee if you don't find it helpful.</p>
+        </div>
+    </section>
+
+    <!-- Custom Modal for Simulated Checkout -->
+    <div id="purchaseModal" class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-stone-100">
+            <button onclick="closePurchaseModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+            
+            <div class="space-y-4">
+                <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center text-lg"><i class="fa-solid fa-cart-shopping"></i></div>
+                <div>
+                    <h3 class="text-xl font-bold text-stone-900">Secure Checkout Demo</h3>
+                    <p class="text-xs text-stone-500">In a live setup, you can link this directly to PayPal, Stripe, or a local Mongolian payment method (QPay/SocialPay) for instant payout.</p>
+                </div>
+
+                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200/60 space-y-2 text-sm">
+                    <div class="flex justify-between font-semibold"><span class="text-stone-700">Nomad Guide (PDF)</span> <span class="text-stone-900">$19.00</span></div>
+                    <div class="flex justify-between text-xs text-stone-500"><span>Processing Fee</span> <span>$0.00</span></div>
+                    <div class="border-t pt-2 flex justify-between font-bold text-stone-900"><span>Total Due</span> <span>$19.00</span></div>
+                </div>
+
+                <form onsubmit="simulatedSuccess(event)" class="space-y-3">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold uppercase text-stone-500">Email Address</label>
+                        <input type="email" placeholder="explorer@travel.com" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500 text-sm">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold uppercase text-stone-500">Cardholder Name</label>
+                        <input type="text" placeholder="John Doe" required class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500 text-sm">
+                    </div>
+                    <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold py-3 rounded-lg text-sm transition">
+                        Pay $19.00 with Card
+                    </button>
+                </form>
+                
+                <div class="text-center">
+                    <span class="text-[10px] text-stone-400">Simulated integration powered by Nomadic Horizon technology</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Purchase Success Toast/Banner -->
+    <div id="successBanner" class="fixed bottom-6 right-6 bg-emerald-900 text-white p-5 rounded-xl shadow-2xl max-w-sm hidden z-50 border border-emerald-800 space-y-2">
+        <div class="flex items-center space-x-2 text-emerald-400 font-bold"><i class="fa-solid fa-circle-check text-lg"></i> <span>Payment Completed!</span></div>
+        <p class="text-xs text-emerald-200">The 140-page Mongolia Ultimate PDF Guide and GPX track assets have been successfully simulated for download. Check your email inbox!</p>
+        <button onclick="closeSuccessBanner()" class="text-[11px] underline text-emerald-300 hover:text-white">Dismiss</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-900">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-lg font-bold tracking-wider text-amber-500 serif-font">NOMADIC HORIZON</span>
+                <p class="text-xs text-stone-500 mt-1">&copy; 2026 Nomadic Horizon Travel Guides. Empowering local nomadic communities.</p>
+            </div>
+            <div class="flex space-x-4 text-xs font-semibold">
+                <a href="#planner" class="hover:text-amber-500 transition">Interactive Route Planner</a>
+                <span>&middot;</span>
+                <a href="#calculator" class="hover:text-amber-500 transition">Budget Estimator</a>
+                <span>&middot;</span>
+                <a href="#survival" class="hover:text-amber-500 transition">Nomadic Phrases</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // State variables
+        let currentDuration = 5;
+        let currentRegion = 'gobi';
+        let budgetStyle = 'midrange';
+
+        // Preloaded interactive data for Mongolia Itineraries
+        const itineraries = {
+            gobi: {
+                title: "Gobi Desert Odyssey",
+                "5": [
+                    { day: "Day 1", title: "Ulaanbaatar to Tsagaan Suvarga (White Stupa)", text: "Drive south across the steppes. Discover the breathtaking limestone cliffs shaped like an ancient sea floor. Stay in a local family-run yurt camp." },
+                    { day: "Day 2", title: "Yol Valley Gorge (Yolyn Am)", text: "Hike deep into the vulture canyon where you might spot glaciers surviving in mid-summer. Spot mountain Ibex grazing on the high cliffs." },
+                    { day: "Day 3", title: "Khongor Sand Dunes (Singing Dunes)", text: "Reach the massive sand dunes. Climb to the top of the dunes to listen to the majestic 'singing' sand hums as the wind blows at sunset." },
+                    { day: "Day 4", title: "Flaming Cliffs (Bayanzag)", text: "Search for dinosaur fossils where Roy Chapman Andrews first discovered dinosaur eggs. Marvel at the glowing red cliffs at sunset." },
+                    { day: "Day 5", title: "Baga Gazriin Chuluu & Return to capital", text: "Enjoy a traditional milk tea breakfast with nomads and head back north towards Ulaanbaatar." }
+                ],
+                "10": [
+                    { day: "Day 1", title: "Ulaanbaatar departure & Baga Gazriin Chuluu", text: "Depart south into granite rock formations with historical temple ruins hidden within." },
+                    { day: "Day 2", title: "Tsagaan Suvarga (White Stupa)", text: "Witness magnificent natural multi-colored clay formations resembling miniature grand canyons." },
+                    { day: "Day 3-4", title: "Yolyn Am Glacier Gorge & Gobi Three Beauties", text: "Explore icy gorges on horseback. Relax in standard Mongolian Ger camps with freshly cooked nomadic dumplings." },
+                    { day: "Day 5-6", title: "Khongor Dunes Deep Desert Exploration", text: "Two full days of camel riding, dune trekking, and listening to the high desert winds. Watch spectacular starry desert skies." },
+                    { day: "Day 7-8", title: "Bayanzag Dinosaur Lands & Ongi Monastery", text: "Walk the prehistoric dinosaur paths and explore the peaceful Buddhist temple ruins next to the dry Ongi River." },
+                    { day: "Day 9", title: "Zorgol Khairkhan Mountain", text: "Rest near giant sacred granite rocks where rare wild sheep and mountain goats live." },
+                    { day: "Day 10", title: "Back to Ulaanbaatar city", text: "Return for hot showers, Mongolian cashmere shopping, and a local traditional music concert." }
+                ],
+                "14": [
+                    { day: "Day 1-3", title: "Transition through Middle Gobi Cliffs & Caves", text: "Deeper detours into hidden caves and forgotten Buddhist structures. Great for photography enthusiasts." },
+                    { day: "Day 4-7", title: "Deep Gobi Expedition & Remote Singing Dunes", text: "Unravel remote corners of Gobi. Sleep under a sky containing zero light pollution. Ride Bactrian camels with nomads." },
+                    { day: "Day 8-10", title: "Hermon Tsav Wilderness", text: "The grand absolute wilderness canyon where most complete dinosaur skeletons were found. Fully expedition-style camping." },
+                    { day: "Day 11-13", title: "Orkhon Valley detour", text: "Cross from dry deserts into high lush volcanic valleys to witness the transition from Gobi to fertile forest steppes." },
+                    { day: "Day 14", title: "Ulaanbaatar arrival", text: "Final farewell dinner with the local nomadic driving crew. Complete shopping run." }
+                ]
+            },
+            khuvsgul: {
+                title: "Lake Khuvsgul & Blue Pearl Path",
+                "5": [
+                    { day: "Day 1", title: "Fly to Murun & Drive to Khatgal Village", text: "Take a short scenic flight to Murun. Drive to the southern shores of the crystal clear Lake Khuvsgul." },
+                    { day: "Day 2", title: "Lake Khuvsgul Boat Ride & Horse Trekking", text: "Charter a private boat to the pristine islands. Ride horses on the pine-covered lakeside cliffs." },
+                    { day: "Day 3", title: "Meet reindeer herders (Tsaatan)", text: "Interact with the indigenous reindeer herders who keep ancient forest traditions alive." },
+                    { day: "Day 4", title: "Hike To Toilogt Peninsula", text: "Enjoy clear viewpoints. Watch the majestic sunrise over the lake reflecting like a giant mirror." },
+                    { day: "Day 5", title: "Return flight to Ulaanbaatar", text: "Drive back to Murun airport and return to the capital." }
+                ],
+                "10": [
+                    { day: "Day 1-2", title: "Overland Drive via Erdenet City & Uran Togoo", text: "Drive north. Camp near an extinct green volcanic crater rich with local bird life." },
+                    { day: "Day 3-5", title: "Deep Lake Khuvsgul Wilderness", text: "Explore remote eastern shores. Try kayaking, fishing, and stay at cozy log cabins on the lake edge." },
+                    { day: "Day 6-7", title: "Tsaatan Reindeer Herders Forest Camp", text: "Journey into the deep Taiga forest. Understand how herds of reindeer survive in freezing temperatures." },
+                    { day: "Day 8-9", title: "Selenge River and Hot Springs", text: "Unwind at natural thermal hot spring mineral baths on your way back south." },
+                    { day: "Day 10", title: "Ulaanbaatar arrival", text: "Enjoy a final dinner and reflect on your memories." }
+                ],
+                "14": [
+                    { day: "Day 1-4", title: "The Northern Overland Loop", text: "Encounter monasteries and dormant volcanic sites on the long, extremely scenic journey north." },
+                    { day: "Day 5-9", title: "East & West Lake Khuvsgul Traverse", text: "Comprehensive exploration of both sides of the giant lake. Unparalleled opportunities for landscape photography." },
+                    { day: "Day 10-12", title: "Darkhad Depression lakes & rivers", text: "Cross over the mountain pass to explore the marshy wetlands populated by nomadic fishermen." },
+                    { day: "Day 13-14", title: "Return route via Bulgan province", text: "Breathtaking green grassy hills. Meet dairy farmers who make 'Airag' (fermented horse milk)." }
+                ]
+            },
+            central: {
+                title: "Central Nomads & Historic Valleys",
+                "5": [
+                    { day: "Day 1", title: "Ulaanbaatar to Elsen Tasarkhai (Mini-Gobi)", text: "Drive west to see sand dunes right in the middle of green grasslands. Ride double-humped camels." },
+                    { day: "Day 2", title: "Karakorum & Erdene Zuu Monastery", text: "Explore the 13th-century capital of the Genghis Khan empire and the oldest surviving Buddhist monastery in Mongolia." },
+                    { day: "Day 3", title: "Orkhon Waterfall (Ulaan Tsutgalan)", text: "See a majestic waterfall crashing into a volcanic canyon. Have a barbecue with nomadic sheep herders." },
+                    { day: "Day 4", title: "Tsenkher Hot Springs", text: "Soak and relax in highly mineralized geothermal pools nestled deep in wild pine forest hills." },
+                    { day: "Day 5", title: "Drive back to Ulaanbaatar", text: "Pass through Hustai National Park on your way back to spot wild Przewalski horses." }
+                ],
+                "10": [
+                    { day: "Day 1-2", title: "Khustai & Elsen Tasarkhai", text: "Watch wild 'Takhi' horses and camp on sand dunes under a starry sky." },
+                    { day: "Day 3-4", title: "Erdene Zuu & Tuvkhun Hermitage Monastery", text: "Hike up to a remote mountaintop meditation retreat built by Zanabazar in the 17th century." },
+                    { day: "Day 5-6", title: "Orkhon Valley Nomadic Immersion", text: "Live like a nomad. Help herd livestock, fetch mountain spring water, and cook local stone barbecues (Khorkhog)." },
+                    { day: "Day 7-8", title: "Tsenkher Hot Springs & Lake Ogii", text: "Soak in hot springs, then head to a gorgeous freshwater lake famous for birds and fishing." },
+                    { day: "Day 9-10", title: "Return via Khar Bukhin ruins to Capital", text: "Examine ancient ruins from Khitan empire before final luxury shopping and flights." }
+                ],
+                "14": [
+                    { day: "Day 1-4", title: "Full Central Loop & Terkhiin Tsagaan Lake", text: "Deep overland tour towards Khorgo extinct volcano and the beautiful pristine 'White Lake'." },
+                    { day: "Day 5-9", title: "Orkhon Valley horse expedition", text: "Spend multiple days on horseback riding through deep roadless mountain valleys and ancient graves." },
+                    { day: "Day 10-12", title: "Tsenkher Hot Springs & Tsetserleg town", text: "Explore local food markets and hike temple hills in a lovely mountain town." },
+                    { day: "Day 13-14", title: "Hustai wild horses & Return", text: "See the wild horses at dusk, then head back to Ulaanbaatar." }
+                ]
+            },
+            west: {
+                title: "Altai Peaks & Eagle Hunters",
+                "5": [
+                    { day: "Day 1", title: "Fly to Olgii City & Meet Kazakh Family", text: "Fly to the far western corner of Mongolia. Experience the distinct Kazakh culture and eagle training." },
+                    { day: "Day 2", title: "Drive to Altai Tavan Bogd National Park", text: "Drive into high-altitude mountain terrain. Sleep in a traditional Kazakh felt yurt." },
+                    { day: "Day 3", title: "Trek to the Potanin Glacier", text: "Hike towards the massive glacier beneath the highest peaks of Mongolia. Breathtaking views." },
+                    { day: "Day 4", title: "Eagle Hunter demonstration & Golden Eagle valley", text: "See the majestic eagles fly from mountain peaks to land on the hunter's arm at full speed." },
+                    { day: "Day 5", title: "Return flight to Ulaanbaatar", text: "Fly back from Olgii to Ulaanbaatar for your international flight home." }
+                ],
+                "10": [
+                    { day: "Day 1-2", title: "Olgii City and Kazakh hospitality", text: "Arrive in the rugged western capital. Sample delicious, hearty horse meat dishes." },
+                    { day: "Day 3-5", title: "Altai Tavan Bogd Base Camp Trek", text: "Spend three days trekking or riding horses around dramatic peaks and massive glaciers." },
+                    { day: "Day 6-7", title: "Khoton & Khurgan Lakes", text: "Camp near gorgeous twin lakes populated by nomadic Kazakh fishermen. Ancient rock art sites." },
+                    { day: "Day 8-9", title: "Golden Eagle training & archery", text: "Learn the secrets of ancient falconry directly from master eagle hunters." },
+                    { day: "Day 10", title: "Olgii airport to Capital", text: "Short flight back to Ulaanbaatar. Complete souvenir shopping." }
+                ],
+                "14": [
+                    { day: "Day 1-4", title: "Deep Altai Expedition", text: "Cross high-altitude mountain passes. Only accessible via skilled off-road driving teams." },
+                    { day: "Day 5-9", title: "High Glaciers and Peak Ascents", text: "Guided climbs up Mt. Malchin or surrounding mountain ridges. Exceptional alpine conditions." },
+                    { day: "Day 10-12", title: "Remote Kazakh Nomadic Stays", text: "Unmatched hospitality and epic storytelling around the yurt stove at night." },
+                    { day: "Day 13-14", title: "Back through Tolbo Lake & flight home", text: "Visit a crystal-clear mountain lake on the drive back to Olgii for your flight." }
+                ]
+            }
+        };
+
+        // Render functions
+        function renderItinerary() {
+            const data = itineraries[currentRegion];
+            const route = data[currentDuration.toString()];
+            
+            // Set Titles
+            document.getElementById('itinerary-tag').innerText = `${currentDuration} Days Plan`;
+            document.getElementById('itinerary-title').innerText = data.title;
+
+            // Build Timeline HTML
+            const timelineContainer = document.getElementById('itinerary-timeline');
+            timelineContainer.innerHTML = '';
+
+            route.forEach((item, index) => {
+                const dayHTML = `
+                    <div class="relative group">
+                        <!-- Left indicator circle -->
+                        <span class="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-amber-600 ring-4 ring-amber-100 group-hover:scale-110 transition"></span>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">${item.day}</span>
+                            <h4 class="text-lg font-bold text-stone-900">${item.title}</h4>
+                            <p class="text-sm text-stone-600 leading-relaxed max-w-2xl">${item.text}</p>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.innerHTML += dayHTML;
+            });
+        }
+
+        function setDuration(days) {
+            currentDuration = days;
+            // Update button UI
+            document.querySelectorAll('.dur-btn').forEach(btn => {
+                btn.className = "dur-btn py-2.5 px-3 border border-stone-200 rounded-xl text-sm font-medium transition hover:border-amber-600";
+            });
+            document.getElementById(`btn-dur-${days}`).className = "dur-btn py-2.5 px-3 border border-amber-600 rounded-xl text-sm font-medium transition bg-amber-50 border-amber-600 text-amber-900";
+            renderItinerary();
+        }
+
+        function setRegion(region) {
+            currentRegion = region;
+            // Update button UI
+            document.querySelectorAll('.reg-btn').forEach(btn => {
+                btn.className = "reg-btn w-full flex items-center justify-between p-3 border border-stone-200 rounded-xl text-left transition hover:bg-stone-50";
+                const chevron = btn.querySelector('i');
+                if (chevron) chevron.className = "fa-solid fa-chevron-right text-xs text-stone-400";
+            });
+            
+            const activeBtn = document.getElementById(`btn-reg-${region}`);
+            activeBtn.className = "reg-btn w-full flex items-center justify-between p-3 border border-amber-600 bg-amber-50/50 rounded-xl text-left transition";
+            const chevron = activeBtn.querySelector('i');
+            if (chevron) chevron.className = "fa-solid fa-chevron-right text-xs text-amber-600";
+
+            renderItinerary();
+        }
+
+        // Budget logic
+        function setStyle(style) {
+            budgetStyle = style;
+            document.querySelectorAll('.style-btn').forEach(btn => {
+                btn.className = "style-btn p-3 border border-stone-200 rounded-xl text-left transition";
+                const badge = btn.querySelector('.uppercase');
+                if (badge) {
+                    badge.classList.remove('text-amber-700');
+                    badge.classList.add('text-stone-500');
+                }
+            });
+
+            const activeBtn = document.getElementById(`btn-style-${style}`);
+            activeBtn.className = "style-btn p-3 border border-amber-600 bg-amber-50/50 rounded-xl text-left transition";
+            const badge = activeBtn.querySelector('.uppercase');
+            if (badge) {
+                badge.classList.remove('text-stone-500');
+                badge.classList.add('text-amber-700');
+            }
+
+            calculateBudget();
+        }
+
+        function calculateBudget() {
+            const travelers = parseInt(document.getElementById('input-travelers').value);
+            const days = parseInt(document.getElementById('input-days').value);
+            
+            // Set slider text
+            document.getElementById('val-travelers').innerText = `${travelers} ${travelers === 1 ? 'Person' : 'People'}`;
+            document.getElementById('val-days').innerText = `${days} Days`;
+
+            // Calculate rate
+            let dailyRate = 120; // mid-range default
+            let styleName = "Mid-Range style";
+            if (budgetStyle === 'backpacker') {
+                dailyRate = 45;
+                styleName = "Backpacker style";
+            } else if (budgetStyle === 'luxury') {
+                dailyRate = 280;
+                styleName = "Luxury / Guided Tour style";
+            }
+
+            // Calculation (with discount factor for larger groups)
+            const discountFactor = travelers === 1 ? 1.0 : (travelers <= 3 ? 0.85 : 0.75);
+            const totalPrice = Math.round(travelers * days * dailyRate * discountFactor);
+
+            // Set UI
+            document.getElementById('total-price').innerText = `$${totalPrice.toLocaleString()}`;
+            document.getElementById('budget-summary').innerHTML = `
+                Great! For <strong>${travelers}</strong> ${travelers === 1 ? 'traveler' : 'travelers'} exploring for <strong>${days} days</strong> in <strong>${styleName}</strong>, 
+                your estimated total budget is around <strong>$${totalPrice.toLocaleString()} USD</strong> (approx. $${Math.round(totalPrice / days)} per day for the entire group).
+            `;
+        }
+
+        // Checklist toggle
+        function toggleCheck(checkbox) {
+            const span = checkbox.parentElement.querySelector('span');
+            if (checkbox.checked) {
+                span.classList.add('line-through', 'text-stone-400');
+            } else {
+                span.classList.remove('line-through', 'text-stone-400');
+            }
+        }
+
+        // Print handler
+        function printItinerary() {
+            window.print();
+        }
+
+        // Custom Simulated Purchase Flow
+        function showPurchaseModal() {
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+        }
+
+        function simulatedSuccess(event) {
+            event.preventDefault();
+            closePurchaseModal();
+            document.getElementById('successBanner').classList.remove('hidden');
+            // Hide after 8 seconds
+            setTimeout(closeSuccessBanner, 8000);
+        }
+
+        function closeSuccessBanner() {
+            document.getElementById('successBanner').classList.add('hidden');
+        }
+
+        // Initial trigger on load
+        window.onload = function() {
+            renderItinerary();
+            calculateBudget();
+        };
+    </script>
+</body>
+</html>
